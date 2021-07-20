@@ -18,8 +18,8 @@ services:
       - "8080:80"
     environment:
       WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: usuario
-      WORDPRESS_DB_PASSWORD: pass
+      WORDPRESS_DB_USER: s{USER_NAME:-usuario}
+      WORDPRESS_DB_PASSWORD: ${USER_PASSWORD?Introducir una contraseña de MariaDB}
       WORDPRESS_DB_NAME: wordpress-db
     volumes:
       - wordpress:/var/www/html
@@ -31,8 +31,8 @@ services:
     environment:
       MYSQL_DATABASE: wordpress-db
       MYSQL_USER: usuario
-      MYSQL_PASSWORD: pass
-      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      MYSQL_PASSWORD: ${USER_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
     volumes:
       - mariadb:/var/lib/mysql
 
