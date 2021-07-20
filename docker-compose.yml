@@ -1,6 +1,15 @@
 version: '3.1'
 
-services:
+services: 
+  phpmyadmin:
+    image: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    environment:
+      PMA_HOST: db
+      
+
 
   wordpress:
     image: wordpress
