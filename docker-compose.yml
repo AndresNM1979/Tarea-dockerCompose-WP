@@ -19,7 +19,7 @@ services:
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: s{USER_NAME:-usuario}
-      WORDPRESS_DB_PASSWORD: ${USER_PASSWORD?Introducir una contraseña de MariaDB}
+      WORDPRESS_DB_PASSWORD: ${USER_PASSWORD}
       WORDPRESS_DB_NAME: wordpress-db
     volumes:
       - wordpress:/var/www/html
