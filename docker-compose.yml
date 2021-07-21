@@ -18,8 +18,8 @@ services:
       - "8080:80"
     environment:
       WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: s{USER_NAME:-usuario}
-      WORDPRESS_DB_PASSWORD: ${USER_PASSWORD}
+      WORDPRESS_DB_USER: ${USER_NAME:-usuario}
+      WORDPRESS_DB_PASSWORD: ${USER_PASSWORD?Debes introducir una pass de la base de  mariadb}
       WORDPRESS_DB_NAME: wordpress-db
     volumes:
       - wordpress:/var/www/html
